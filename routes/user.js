@@ -8,6 +8,7 @@ const { isAuthenticated } = require('../middlewares/auth');
 
 // Controller imports
 const userController = require('../controllers/userController');
+const scheduleController = require('../controllers/scheduleController');
 
 // All routes in this file require authentication
 router.use(isAuthenticated);
@@ -26,5 +27,11 @@ router.get('/profile-image', userController.getProfileImage);
 
 // GET /user/profile-image/:userId - Get any user's profile image by ID
 router.get('/profile-image/:userId', userController.getUserProfileImage);
+
+// POST /user/new-event - Create new user event
+//router.post('/new-event', scheduleController.postEvent);
+
+// GET /user/events - Get user Events
+//router.get('/events', scheduleController.getEvents)
 
 module.exports = router;
