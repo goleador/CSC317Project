@@ -3,11 +3,11 @@
 <div class="container">
   <div class="welcome-section">
     <h1><%= message %></h1>
-    <p>A simple authentication system for web applications</p>
+    <p>A time table to live by.</p>
     
     <% if (isAuthenticated) { %>
       <div class="action-buttons">
-        <a href="/user/profile" class="btn primary-btn">View Profile</a>
+        <a href="/partials/create-event" class="btn primary-btn">Create New Event</a>
       </div>
     <% } else { %>
       <div class="action-buttons">
