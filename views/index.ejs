@@ -1,14 +1,12 @@
 <%- include('./partials/header') %>
-
+</script>
 <div class="container">
   <div class="welcome-section">
     <h1><%= message %></h1>
     <p>A time table to live by.</p>
     
     <% if (isAuthenticated) { %>
-      <div class="action-buttons">
-        <a href="/partials/create-event" class="btn primary-btn">Create New Event</a>
-      </div>
+      <%- include('./partials/create-event') %>
     <% } else { %>
       <div class="action-buttons">
         <a href="/auth/login" class="btn primary-btn">Login</a>

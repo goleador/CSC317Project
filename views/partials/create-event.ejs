@@ -1,0 +1,28 @@
+<br>
+<form action="/auth/login" method="POST">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+  <div class="form-group">
+  <label for="title">Title</label>
+    <input 
+      type="text" 
+      id="title" 
+      name="title"
+      value="<%= typeof formData !== 'undefined' ? formData.email || '' : '' %>"
+      placeholder="Enter your title here"
+      required
+    >
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input 
+      type="text" 
+      id="description" 
+      name="description"
+      placeholder="Enter your description"
+    >
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn primary-btn">Create New Event</button>
+  </div>
+</form>
