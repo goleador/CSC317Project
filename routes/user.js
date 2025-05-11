@@ -29,9 +29,9 @@ router.get('/profile-image', userController.getProfileImage);
 router.get('/profile-image/:userId', userController.getUserProfileImage);
 
 // POST /user/new-event - Create new user event
-//router.post('/new-event', scheduleController.postEvent);
+router.post('/new-event', scheduleController.postEvent);
 
 // GET /user/events - Get user Events
-//router.get('/events', scheduleController.getEvents)
+router.get('/events', scheduleController.getEvents)
 
 module.exports = router;

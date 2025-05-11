@@ -1,5 +1,5 @@
 <br>
-<form action="/auth/login" method="POST">
+<form action="/user/new-event" method="POST">
   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
   <div class="form-group">
@@ -8,7 +8,7 @@
       type="text" 
       id="title" 
       name="title"
-      value="<%= typeof formData !== 'undefined' ? formData.email || '' : '' %>"
+      value="<%= typeof formData !== 'undefined' ? formData.text || '' : '' %>"
       placeholder="Enter your title here"
       required
     >
