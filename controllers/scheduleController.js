@@ -14,6 +14,7 @@ exports.postEvent = async (req, res, next) => {
       userId: req.session.user.id,
       title: req.body.title,
       description: req.body.description,
+      dueDate: req.body.duedate
     });
 
     // Save event to database
