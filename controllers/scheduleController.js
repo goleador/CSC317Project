@@ -34,9 +34,8 @@ exports.postEvent = async (req, res, next) => {
 exports.getEvents = async (req, res, next) => {
   try {
     const userId = req.session.user.id;
-    // proof of concept
-    const userEvents = await Event.findOne({ userId: userId });
-    console.log(userEvents);
+    const userEvents = await Event.find({ userId: userId });
+    res.json(userEvents)
     res.status(200);
   } catch (error) {
     next(error);
