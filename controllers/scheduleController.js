@@ -24,12 +24,21 @@ exports.postEvent = async (req, res, next) => {
       type: 'success', 
       text: 'New event successfully created.' 
     };
-    res.redirect('/user/profile');
+    res.redirect('/');
   } catch (error) {
     next(error);
   }
 };
 // handle retrieving all events
-exports.getEvents = (req, res) => {
-
+exports.getEvents = async (req, res, next) => {
+  try {
+    const userId = req.session.user.id;
+    // proof of concept
+    const userEvents = await Event.findOne({ userId: userId });
+    console.log(userEvents);
+    res.status(200);
+  } catch (error) {
+    next(error);
+  }
+  
 };
