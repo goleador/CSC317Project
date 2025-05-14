@@ -18,18 +18,20 @@
   <div class="features-section">
     <h2>Features</h2>
     <div class="feature-grid">
-      <div class="feature-card">
-        <h3>User Authentication</h3>
-        <p>Secure login and registration with password hashing</p>
-      </div>
-      <div class="feature-card">
-        <h3>Session Management</h3>
-        <p>Persistent sessions with secure cookies</p>
-      </div>
-      <div class="feature-card">
-        <h3>Protected Routes</h3>
-        <p>Restrict access to authenticated users only</p>
-      </div>
+      <script>
+        let currentDiv = document.getElementsByClassName("feature-grid")[0];
+        fetch('user/events')
+          .then(response => response.json())
+          .then(events => {
+            events.forEach((event) => {
+              currentDiv.appendChild(document.createTextNode(event.title));
+              currentDiv.appendChild(document.createElement("br"));
+              currentDiv.appendChild(document.createTextNode(event.description));
+              currentDiv.appendChild(document.createElement("br"));
+              currentDiv.appendChild(document.createTextNode(event.dueDate));
+            });
+          });
+      </script>
     </div>
   </div>
 </div>
