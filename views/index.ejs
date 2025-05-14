@@ -16,7 +16,7 @@
   </div>
   
   <div class="features-section">
-    <h2>Features</h2>
+    <h2>Your Events</h2>
     <div class="feature-grid">
       <script>
         let currentDiv = document.getElementsByClassName("feature-grid")[0];
@@ -24,11 +24,16 @@
           .then(response => response.json())
           .then(events => {
             events.forEach((event) => {
-              currentDiv.appendChild(document.createTextNode(event.title));
-              currentDiv.appendChild(document.createElement("br"));
-              currentDiv.appendChild(document.createTextNode(event.description));
-              currentDiv.appendChild(document.createElement("br"));
-              currentDiv.appendChild(document.createTextNode(event.dueDate));
+              let newDiv = document.createElement("div");
+              newDiv.classList.add("feature-card");
+              let title = document.createElement("h3");
+              title.textContent = event.title;
+              newDiv.appendChild(title);
+              newDiv.appendChild(document.createElement("br"));
+              newDiv.appendChild(document.createTextNode(event.description));
+              newDiv.appendChild(document.createElement("br"));
+              newDiv.appendChild(document.createTextNode(event.dueDate.slice(0, 10)));
+              currentDiv.appendChild(newDiv);
             });
           });
       </script>
